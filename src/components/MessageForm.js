@@ -1,0 +1,32 @@
+import React from 'react'
+
+const MessageForm = ({ handleSubmit, handleKeyDown, handleChange, values, errors }) => {
+
+    return (
+        <form onSubmit={handleSubmit} className='message-form-container'>
+            <div className="message-form">
+                <div>
+                    <img
+                        className="profil-picture"
+                        src="https://picsum.photos/200/200.webp"
+                        alt="Profil Picture" />
+                </div>
+                <textarea
+                    onChange={handleChange}
+                    onKeyDown={handleKeyDown}
+                    value={values.message}
+                    name="message"
+                    placeholder="Hello World" />
+            </div>
+            {
+                errors.message && <p className='error-text'>{errors.message}</p>
+            }
+            <footer>
+                <p>{280 - values.message.length}</p>
+                <button type="submit" disabled={values.message.length === 0 || values.message.length > 280}>Tweeter</button>
+            </footer>
+        </form>
+    )
+}
+
+export default MessageForm
