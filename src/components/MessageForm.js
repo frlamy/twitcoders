@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MessageForm = ({ handleSubmit, handleKeyDown, handleChange, values, errors }) => {
+const MessageForm = ({ handleSubmit, handleKeyDown, handleChange, values, errors, user }) => {
 
     return (
         <form onSubmit={handleSubmit} className='message-form-container'>
@@ -8,8 +8,8 @@ const MessageForm = ({ handleSubmit, handleKeyDown, handleChange, values, errors
                 <div>
                     <img
                         className="profil-picture"
-                        src="https://picsum.photos/200/200.webp"
-                        alt="Profil Picture" />
+                        src={user.photoURL}
+                        alt="Profil" />
                 </div>
                 <textarea
                     onChange={handleChange}

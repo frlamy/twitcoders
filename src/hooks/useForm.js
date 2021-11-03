@@ -40,7 +40,9 @@ const useForm = (initialState, validate, next) => {
     const handleKeyDown = event => {
         if (event.keyCode === 13 && event.ctrlKey) {
             event.preventDefault()
-            next()
+            const errors = validate(values)
+            setErrors(errors)
+            setIsSubmitted(true)
         }
     }
 

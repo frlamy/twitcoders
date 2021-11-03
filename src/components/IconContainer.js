@@ -1,8 +1,8 @@
 import React from 'react'
 
-const IconContainer = ({ children, color, count }) => {
+const IconContainer = ({ children, color, count, isLike, ...props }) => {
     return (
-        <div className='icon-group'>
+        <div className={`icon-group ${isLike && `icon-isLike`}`} {...props}>
             <div className={`icon-container icon-${color}`}>
                 {children}
             </div>
