@@ -11,7 +11,6 @@ import {
 import { formatDistanceToNow } from 'date-fns'
 import { fr } from 'date-fns/locale'
 import IconContainer from './IconContainer';
-import MessageList from './MessageList'
 
 const Message = ({ message }) => {
 
@@ -23,7 +22,7 @@ const Message = ({ message }) => {
             const isLike = message.likes.some(like => like.likeBy.id === user.uid)
             setIsLike(isLike)
         }
-    }, [])
+    }, [user, message.likes])
 
     const handleLike = () => {
         setIsLike(prevIsLike => !prevIsLike)
